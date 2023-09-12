@@ -69,6 +69,13 @@ $ make shell api
 
 # Install Libraries
 
+# https://docs.nestjs.com/
+# Include following line into Dockerfile
+$ npm i -g @nestjs/cli
+$ nest new project-name
+$ nest --version
+$ nest --help
+
 # https://typescript-eslint.io/getting-started
 $ npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
 
