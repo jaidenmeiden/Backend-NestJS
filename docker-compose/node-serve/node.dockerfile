@@ -25,4 +25,4 @@ VOLUME ["/usr/src/api/node_modules"]
 #CMD ["npm", "run", "dev"]
 
 # Running the app into production environment
-CMD ["npm", "run", "prod"]
+CMD ["npm", "run", "start"]

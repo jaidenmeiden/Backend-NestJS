@@ -31,5 +31,5 @@ services:
 
 # Define networks
 networks:
-  email-integration-with-node-aiudo:
+  backend-nestjs-jaidenmeiden:
     driver: bridge
