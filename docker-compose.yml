@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  api:
+    container_name: "${APP_NAME}_api"
+    env_file: ./.env
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    build:
+      context: ./
+      dockerfile: docker-compose/node-serve/node.dockerfile
+    volumes:
+      - ~/.ssh:/home/.ssh
+      - ./:/usr/src/api
+      - /usr/src/api/node_modules
+    networks:
+      - ${APP_NETWORK}
+
+  # Mailing Server
+  mailhog:
+    image: mailhog/mailhog
+    container_name: "${APP_NAME}_mailhog"
+    logging:
+      driver: 'none'
+    ports:
+      - ${MAILHOG_WEB_PORT}:${MAILHOG_WEB_PORT}
+      - ${MAILHOG_SMTP_RECEIVE_PORT}:${MAILHOG_SMTP_RECEIVE_PORT}
+      - ${MAILHOG_INTERFACE_PORT}:${MAILHOG_INTERFACE_PORT}
+    networks:
+        - ${APP_NETWORK}
+
+# Define networks
+networks:
+  email-integration-with-node-aiudo:
+    driver: bridge
