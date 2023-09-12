@@ -10,6 +10,7 @@ RUN chown -R 1000:1000 /root/.npm
 # Installing dependencies
 COPY package*.json ./
 RUN npm install
+RUN npm i -g @nestjs/cli
 
 COPY . .
 
