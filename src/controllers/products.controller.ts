@@ -26,4 +26,12 @@ export class ProductsController {
       message:`product ${productId}`
     }
   }
+
+  @Post()
+  create(@Body() payload: any) {
+    return {
+      message: 'accion de crear',
+      payload,
+    };
+  }
 }
