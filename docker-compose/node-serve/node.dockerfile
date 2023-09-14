@@ -20,8 +20,6 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # Port
 EXPOSE 8080
 
-VOLUME ["/usr/src/api/node_modules"]
-
 # Running the app into development environment
 CMD ["npm", "run", "start:dev"]
 

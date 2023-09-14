@@ -12,8 +12,7 @@ services:
     volumes:
       - ~/.ssh:/home/.ssh
       - ./:/usr/src/api
-      - /usr/src/api/node_modules
-#    command: ["/usr/src/api/docker-compose/entrypoint.sh"]
+      - node_modules:/usr/src/api/node_modules
     networks:
       - ${APP_NETWORK}
 
@@ -29,6 +28,9 @@ services:
       - ${MAILHOG_INTERFACE_PORT}:${MAILHOG_INTERFACE_PORT}
     networks:
         - ${APP_NETWORK}
+
+volumes:
+  node_modules:
 
 # Define networks
 networks:
