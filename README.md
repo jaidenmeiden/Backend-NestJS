@@ -127,9 +127,15 @@ Creates a new (standard mode) Nest project.
 [CLI command reference](https://docs.nestjs.com/cli/usages)
 
 ```bash
-# Install Node dependencies
+# Create controllers
 $ nest g controller categories --flat
 $ nest g controller products --flat
+
+# Create services
+$ nest g s services/products --flat
+
+# Create entities
+$ nest g s services/products --flat
 
 # In case you want to exit the shell you just have to type
 $ exit
