@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param, Query, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Query, Body, HttpCode, HttpStatus } from '@nestjs/common';
 
 @Controller('products')
 export class ProductsController {
@@ -21,6 +21,7 @@ export class ProductsController {
   }
 
   @Get(':productId')
+  @HttpCode(HttpStatus.OK)
   getOne(@Param('productId') productId: string) {
     return {
       message:`product ${productId}`
@@ -28,6 +29,7 @@ export class ProductsController {
   }
 
   @Post()
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() payload: any) {
     return {
       message: 'Create action',
