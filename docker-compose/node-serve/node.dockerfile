@@ -23,7 +23,7 @@ EXPOSE 8080
 VOLUME ["/usr/src/api/node_modules"]
 
 # Running the app into development environment
-#CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start:dev"]
 
 # Running the app into production environment
-CMD ["npm", "run", "start"]
+#CMD ["npm", "run", "start"]
