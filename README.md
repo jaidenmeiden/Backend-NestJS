@@ -120,6 +120,21 @@ $ npm run start
 $ exit
 ```
 
+# CLI command reference NestJS
+
+Creates a new (standard mode) Nest project. 
+
+[CLI command reference](https://docs.nestjs.com/cli/usages)
+
+```bash
+# Install Node dependencies
+$ nest g controller categories --flat
+$ nest g controller products --flat
+
+# In case you want to exit the shell you just have to type
+$ exit
+```
+
 ## Server configuration
 
 It must be located at the root of the project within the server and execute the following commands:
