@@ -43,4 +43,12 @@ export class ProductsController {
       payload
     };
   }
+
+  @Delete(':idProduct')
+  delete(@Param('idProduct') idProduct: number) {
+    return {
+      message: 'Delete action',
+      idProduct
+    };
+  }
 }
