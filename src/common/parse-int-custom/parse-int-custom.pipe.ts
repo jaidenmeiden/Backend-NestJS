@@ -3,10 +3,14 @@ import { ArgumentMetadata, Injectable, PipeTransform, BadRequestException } from
 @Injectable()
 export class ParseIntCustomPipe implements PipeTransform {
   transform(value: string, metadata: ArgumentMetadata) {
-    const finalValue = parseInt(value, 10);
-    if (isNaN(finalValue)) {
+    if (this.isNotInteger(value)) {
       throw new BadRequestException(`${value} is not number!`);
+    } else {
+      return  parseInt(value, 10);
     }
-    return finalValue;
+  }
+
+  isNotInteger(value) {
+    return /^[0-9]+$/.test(value) === false;
   }
 }

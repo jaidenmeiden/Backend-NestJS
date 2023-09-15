@@ -22,7 +22,7 @@ export class ProductsController {
   }
 
   @Get('custom/:id')
-  getOneCustom(@Param('id', ParseIntCustomPipe) id: number): any {
+  getOneCustom(@Param('id', ParseIntCustomPipe) id: number) {
     return this.productsService.findOne(+id);
   }
 
