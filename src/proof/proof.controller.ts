@@ -1,4 +1,5 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Query, Body, HttpCode, HttpStatus, Res } from '@nestjs/common';
+import { Response } from 'express';
 
 @Controller('proof')
 export class ProofController {
@@ -17,6 +18,7 @@ export class ProofController {
 
   // GET: Params
   @Get('proof_string/:idProof')
+  @HttpCode(HttpStatus.OK)
   getProof2(@Param('idProof') idProof: string): string {
     return `Proof B id: ${idProof}`;
   }
@@ -51,5 +53,13 @@ export class ProofController {
   @Get('proofs/:idProof')
   endpoint1(@Param('idProof') idProof: string) {
     return `Proof ${idProof}`;
+  }
+
+  @Get('express/:id')
+  @HttpCode(HttpStatus.OK)
+  getWithExpress(@Res() response: Response, @Param('productId') productId: string) {
+    response.status(200).send({
+      message:`product ${productId}`
+    });
   }
 }

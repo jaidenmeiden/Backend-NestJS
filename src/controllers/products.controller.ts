@@ -1,65 +1,41 @@
-import { Controller, Get, Post, Put, Delete, Param, Query, Body, HttpCode, HttpStatus, Res } from '@nestjs/common';
-import { Response } from 'express';
+import { Controller, Get, Post, Put, Delete, Param, Query, Body, HttpCode, HttpStatus } from '@nestjs/common';
+import { ProductsService } from "../services/products.service";
 
 @Controller('products')
 export class ProductsController {
+
+  constructor(private productsService: ProductsService) {}
+
   @Get()
   getList(
     @Query('limit') limit = 100,
     @Query('offset') offset = 0,
     @Query('brand') brand: string,
   ) {
-    return {
-      message:`products limit=> ${limit} offset=> ${offset} brand=> ${brand}`
-    }
+    return this.productsService.findAll();
   }
 
-  @Get('filter')
-  applyFilter() {
-    return {
-      message:`yo soy un filter`
-    }
-  }
-
-  @Get(':productId')
-  @HttpCode(HttpStatus.OK)
-  getOne(@Param('productId') productId: string) {
-    return {
-      message:`product ${productId}`
-    }
-  }
-
-  @Get('express/:productId')
-  @HttpCode(HttpStatus.OK)
-  getWithExpress(@Res() response: Response, @Param('productId') productId: string) {
-    response.status(200).send({
-      message:`product ${productId}`
-    });
+  @Get(':id')
+  getOne(@Param('id') id: string) {
+    return this.productsService.findOne(+id);
   }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
   create(@Body() payload: any) {
-    return {
-      message: 'Create action',
-      payload,
-    };
+    return this.productsService.create(payload);
   }
 
-  @Put(':idProduct')
-  update(@Param('idProduct') idProduct: string, @Body() payload: any): any {
-    return {
-      message: 'Update action',
-      idProduct,
-      payload
-    };
+  @Put(':id')
+  update(@Param('id') id: string, @Body() payload: any): any {
+    return this.productsService.update(+id, payload);
   }
 
-  @Delete(':idProduct')
-  delete(@Param('idProduct') idProduct: number) {
+  @Delete(':id')
+  delete(@Param('id') id: number) {
     return {
       message: 'Delete action',
-      idProduct
+      id
     };
   }
 }
