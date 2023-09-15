@@ -137,6 +137,9 @@ $ nest g s services/products --flat
 # Create entities
 $ nest g s services/products --flat
 
+# Create custom pipes
+$ nest g pipe common/parse-int-custom
+
 # In case you want to exit the shell you just have to type
 $ exit
 ```

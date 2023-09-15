@@ -1,5 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Param, Query, Body, HttpCode, HttpStatus, ParseIntPipe } from '@nestjs/common';
 import { ProductsService } from "../services/products.service";
+import { ParseIntCustomPipe } from "../common/parse-int-custom/parse-int-custom.pipe";
 
 @Controller('products')
 export class ProductsController {
@@ -17,6 +18,11 @@ export class ProductsController {
 
   @Get(':id')
   getOne(@Param('id', ParseIntPipe) id: number) {
+    return this.productsService.findOne(+id);
+  }
+
+  @Get('custom/:id')
+  getOneCustom(@Param('id', ParseIntCustomPipe) id: number): any {
     return this.productsService.findOne(+id);
   }
 
