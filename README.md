@@ -76,6 +76,14 @@ $ nest new project-name
 $ nest --version
 $ nest --help
 
+# https://github.com/MichalLytek/class-transformer-validator
+# Validate params with class-validator
+$ npm i class-validator class-transformer
+
+# Install mapped-types
+# https://github.com/nestjs/mapped-types
+$ npm i @nestjs/mapped-types
+
 # https://typescript-eslint.io/getting-started
 $ npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
 
@@ -156,7 +164,7 @@ It must be located at the root of the project within the server and execute the 
 $ cd /var/www/backend-nestjs
 $ pm2 start pm2.config.json
 # Optional instruction (Only with root user)
-# $ pm2 start npm --name nestjs_micro --user www-data -- start
+# $ pm2 start npm --name nestjs_micro --user www-dtos -- start
 
 # Check it.
 $ pm2 ls
