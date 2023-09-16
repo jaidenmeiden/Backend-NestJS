@@ -7,8 +7,8 @@ export class AppService {
     @Inject('DATA') private tasks: any[]
   ) {}
 
-  getHello(): string {
+  getHello(value: string): string {
     console.log(this.tasks);
-    return `Hello World with ${this.apiKey}`;
+    return `Hello World with ${this.apiKey}. From controller: ${value}`;
   }
 }
