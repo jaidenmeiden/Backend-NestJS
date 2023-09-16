@@ -30,7 +30,7 @@ export class ProofController {
   }
 
   // GET: Query params
-  @Get('proofs')
+  @Get()
   getProofs(@Query('limit') limit = 10, @Query('offset') offset = 0): string {
     return `List of proofs, limit=${limit} offset=${offset}`;
   }
@@ -45,21 +45,21 @@ export class ProofController {
   * This is easily resolved by reversing their order. Place the dynamic endpoints
   * in the second position so that they do not cause any issues.
   *  */
-  @Get('proofs/filter')
+  @Get('filter')
   endpoint2() {
     return `I'm a filter!`;
   }
 
-  @Get('proofs/:idProof')
+  @Get(':idProof')
   endpoint1(@Param('idProof') idProof: string) {
     return `Proof ${idProof}`;
   }
 
   @Get('express/:id')
   @HttpCode(HttpStatus.OK)
-  getWithExpress(@Res() response: Response, @Param('productId') productId: string) {
+  getWithExpress(@Res() response: Response, @Param('id') id: string) {
     response.status(200).send({
-      message:`product ${productId}`
+      message:`product ${id}`
     });
   }
 }
