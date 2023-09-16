@@ -22,7 +22,7 @@ export class BrandsController {
   }
 
   @Get(':id')
-  get(@Param('id', ParseIntPipe) id: number) {
+  info(@Param('id', ParseIntPipe) id: number) {
     return this.brandsService.findOne(id);
   }
 
