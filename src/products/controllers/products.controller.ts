@@ -21,7 +21,7 @@ export class ProductsController {
   constructor(private productsService: ProductsService) {}
 
   @Get()
-  getList(
+  findAll(
     @Query('limit') limit = 100,
     @Query('offset') offset = 0,
     @Query('brand') brand: string,
@@ -30,12 +30,12 @@ export class ProductsController {
   }
 
   @Get(':id')
-  getOne(@Param('id', ParseIntPipe) id: number) {
+  info(@Param('id', ParseIntPipe) id: number) {
     return this.productsService.findOne(+id);
   }
 
   @Get('custom/:id')
-  getOneCustom(@Param('id', ParseIntCustomPipe) id: number) {
+  infoCustom(@Param('id', ParseIntCustomPipe) id: number) {
     return this.productsService.findOne(+id);
   }
 
