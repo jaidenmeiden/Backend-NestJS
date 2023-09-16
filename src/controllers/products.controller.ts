@@ -1,7 +1,19 @@
-import { Controller, Get, Post, Put, Delete, Param, Query, Body, HttpCode, HttpStatus, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Query,
+  Param,
+  Post,
+  Body,
+  Put,
+  Delete,
+  HttpStatus,
+  HttpCode,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { ProductsService } from "../services/products.service";
 import { ParseIntCustomPipe } from "../common/parse-int-custom/parse-int-custom.pipe";
-import { CreateProductDTO, UpdateProductDto } from "../dtos/products.dtos";
+import { CreateProductDto, UpdateProductDto } from "../dtos/products.dtos";
 
 @Controller('products')
 export class ProductsController {
@@ -29,7 +41,7 @@ export class ProductsController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() payload: CreateProductDTO) {
+  create(@Body() payload: CreateProductDto) {
     return this.productsService.create(payload);
   }
 
