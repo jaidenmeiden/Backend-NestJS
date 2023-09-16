@@ -84,6 +84,10 @@ $ npm i class-validator class-transformer
 # https://github.com/nestjs/mapped-types
 $ npm i @nestjs/mapped-types
 
+# Install axios
+# https://docs.nestjs.com/techniques/http-module
+$ npm i --save @nestjs/axios axios
+
 # https://typescript-eslint.io/getting-started
 $ npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
 
