@@ -135,15 +135,23 @@ Creates a new (standard mode) Nest project.
 [CLI command reference](https://docs.nestjs.com/cli/usages)
 
 ```bash
+# Create modules
+$ nest g mo products
+$ nest g mo users
+
 # Create controllers
-$ nest g controller categories --flat
-$ nest g controller products --flat
+$ nest g products/controller categories --flat
+$ nest g products/controller products --flat
+$ nest g products/controller brands --flat
+$ nest g users/controller customers --flat
+$ nest g users/controller users --flat
 
 # Create services
-$ nest g s services/products --flat
-
-# Create entities
-$ nest g s services/products --flat
+$ nest g s products/services categories --flat
+$ nest g s products/services products --flat
+$ nest g s products/services brands --flat
+$ nest g s users/services customers --flat
+$ nest g s users/services users --flat 
 
 # Create custom pipes
 $ nest g pipe common/parse-int-custom
