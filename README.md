@@ -143,6 +143,9 @@ Creates a new (standard mode) Nest project.
 $ nest g mo products
 $ nest g mo users
 
+# Global module
+$ nest g mo database
+
 # Create controllers
 $ nest g products/controller categories --flat
 $ nest g products/controller products --flat

@@ -6,22 +6,16 @@ import { AppService } from './app.service';
 import { ProofController } from "./proof/proof.controller";
 import { ProductsModule } from './products/products.module';
 import { UsersModule } from './users/users.module';
-
-const API_KEY = process.env.API_KEY;
-const API_KEY_PROD = process.env.API_KEY_PROD;
+import { DatabaseModule } from './database/database.module';
 
 @Module({
-  imports: [HttpModule, ProductsModule, UsersModule],
+  imports: [HttpModule, ProductsModule, UsersModule, DatabaseModule],
   controllers: [
     AppController,
     ProofController
   ],
   providers: [
     AppService, //useClass
-    {
-      provide: 'API_KEY',
-      useValue: process.env.APP_ENV === 'production' ? API_KEY_PROD : API_KEY,
-    },
     {
       provide: 'DATA',
       useFactory: async (http: HttpService) => {
