@@ -13,7 +13,7 @@ import { environment } from './environment';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: environment[process.env.APP_ENV] || '.env',
+      envFilePath: environment[process.env.APP_ENV] || '.env.local',
       isGlobal: true,
     }),
     HttpModule,
