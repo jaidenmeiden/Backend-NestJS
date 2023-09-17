@@ -3,16 +3,11 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AppService {
-  apiKey:string;
-  constructor(
-    private configService: ConfigService,
-    @Inject('DATA') private tasks: any[]
-  ) {
-    this.apiKey = this.configService.get('API_KEY');
-  }
+  constructor(private config: ConfigService) {}
 
   getHello(value: string): string {
-    //console.log(this.tasks);
-    return `Hello World with ${this.apiKey} con ConfigService. From controller: ${value}`;
+    const apiKey = this.config.get<string>('API_KEY');
+    const domain = this.config.get('APP_DOMAIN');
+    return `Hello World!  Envs: ${apiKey} and  ${domain} con ConfigService. From controller: ${value}`;
   }
 }

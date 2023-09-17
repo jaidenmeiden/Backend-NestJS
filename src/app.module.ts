@@ -8,11 +8,12 @@ import { ProofController } from "./proof/proof.controller";
 import { ProductsModule } from './products/products.module';
 import { UsersModule } from './users/users.module';
 import { DatabaseModule } from './database/database.module';
+import { environment } from './environment';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: environment[process.env.APP_ENV] || '.env',
       isGlobal: true,
     }),
     HttpModule,
