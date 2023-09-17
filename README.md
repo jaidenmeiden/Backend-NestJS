@@ -92,6 +92,10 @@ $ npm i --save @nestjs/config
 # https://docs.nestjs.com/techniques/http-module
 $ npm i --save @nestjs/axios axios
 
+# Install schema description language and data validator for JavaScript
+# https://github.com/hapijs/joi
+$ npm install --save joi
+
 # https://typescript-eslint.io/getting-started
 $ npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
 
