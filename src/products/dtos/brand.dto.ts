@@ -2,12 +2,12 @@ import { IsString, IsUrl, IsNotEmpty } from 'class-validator';
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 
 export class CreateBrandDto {
-  @ApiProperty()
+  @ApiProperty({ description: 'Brand name' })
   @IsString()
   @IsNotEmpty()
   readonly name: string;
 
-  @ApiProperty()
+  @ApiProperty({ description: 'Brand image' })
   @IsUrl()
   @IsNotEmpty()
   readonly image: string;
