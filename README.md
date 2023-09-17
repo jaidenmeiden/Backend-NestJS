@@ -84,6 +84,10 @@ $ npm i class-validator class-transformer
 # https://github.com/nestjs/mapped-types
 $ npm i @nestjs/mapped-types
 
+# Install mapped-types
+# https://docs.nestjs.com/techniques/configuration
+$ npm i --save @nestjs/config
+
 # Install axios
 # https://docs.nestjs.com/techniques/http-module
 $ npm i --save @nestjs/axios axios
