@@ -98,6 +98,7 @@ $ npm install --save joi
 
 # Documentation
 # https://docs.nestjs.com/openapi/introduction
+# https://docs.nestjs.com/openapi/cli-plugin#using-the-cli-plugin
 # https://github.com/nestjs/swagger
 # https://swagger.io/
 # https://swagger.io/specification/
