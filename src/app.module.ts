@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import config from './config';
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs'
 import { AppController } from './app.controller';
@@ -14,6 +15,7 @@ import { environment } from './environment';
   imports: [
     ConfigModule.forRoot({
       envFilePath: environment[process.env.APP_ENV] || '.env.local',
+      load: [config],
       isGlobal: true,
     }),
     HttpModule,
