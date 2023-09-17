@@ -96,6 +96,13 @@ $ npm i --save @nestjs/axios axios
 # https://github.com/hapijs/joi
 $ npm install --save joi
 
+# Documentation
+# https://docs.nestjs.com/openapi/introduction
+# https://github.com/nestjs/swagger
+# https://swagger.io/
+# https://swagger.io/specification/
+$ npm install --save @nestjs/swagger
+
 # https://typescript-eslint.io/getting-started
 $ npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
 
